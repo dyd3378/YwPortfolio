@@ -88,12 +88,21 @@ p {
 
 /* navbar */
 #navbar {
+    position: fixed;
+    width: 100%;
     display: flex;
     justify-content:space-between;
-    background-color: var(--color-purple);
+    /* background-color: var(--color-purple); */
+    background-color: transparent;
     align-items: center;
     color: var(--color-white);
-    padding: 16x;
+    padding: 12px;
+    transition: all var(--animation-duration) ease-in-out;
+    
+}
+#navbar.navbar--dark {
+    background-color: var(--color-purple);
+    padding: 8px;
 }
 
 /* ------------------ */
@@ -116,6 +125,7 @@ p {
 }
 .navbar__menu {
     display: flex;
+    margin: 6px;
 }
 /* ------------------ */
 
@@ -135,7 +145,7 @@ p {
 
 .navbar__toggle-btn {
     position: absolute;
-    top: 6px;
+    top: 16px;
     right: 32px;
     font-size: 24px;
     color: var(--color-white);
@@ -147,6 +157,7 @@ p {
     background: url("images/bg-blue2.png") center/cover no-repeat;
     padding: 40px;
     text-align: center;
+    padding-top: 120px;
 }
 .home__avatar {
     width: 250px;
