@@ -77,6 +77,37 @@ arrowUp.addEventListener('click', () => {
 
 });
 
+//my project 버튼 클릭 fillter
+const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
+
+workBtnContainer.addEventListener('click',(e) => {
+    //카운트 클릭시  parentNode를 이용해 부모요소를 받아온다
+    const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+    if(filter == null){
+        return;
+    }
+
+    projectContainer.classList.add('anime-out');
+
+
+    setTimeout(() => {
+        
+        projects.forEach((project) =>{
+            // console.log(project.dataset.type);
+             if(filter === '*' || filter === project.dataset.type){
+                 project.classList.remove('invisible');
+             }else {
+                 project.classList.add('invisible');
+             }
+         });
+
+        projectContainer.classList.remove('anime-out');
+    }, 300);
+
+});
+
 //스크롤 함수 
 function scrollIntoView(selector){
     const scrollTo = document.querySelector(selector);
