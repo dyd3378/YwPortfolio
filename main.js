@@ -19,3 +19,28 @@ document.addEventListener('scroll', () => {
         navbar.classList.remove('navbar--dark');
     }
 });
+
+//Handle scrolling when tapping  on the navbar menu
+//   메뉴 클릭시 해당 탭으로 스크롤링 
+
+const about = document.querySelector('#about');
+const navbarMenu = document.querySelector('.navbar__menu');
+const aboutT = about.getBoundingClientRect().top;
+console.log ("aboutH::: "+aboutT);
+
+navbarMenu.addEventListener('click', (event) =>{
+     
+
+     const target = event.target;
+     const link = target.dataset.link;
+     if( link == null){
+         return;
+     }
+    //  console.log("about Click"+event.target.dataset.link);
+    //  if(link == "#about"){
+    //      console.log ("about!!!!!!!!"+aboutT);
+    //      window.scrollTo(0,aboutT);
+    //  }
+    const scrollTo = document.querySelector(link);
+    scrollTo.scrollIntoView({behavior: "smooth"});
+});
