@@ -49,17 +49,35 @@ contact.addEventListener('click',() =>{
 
 // 스크롤 이동시 홈화면 투명 
 const homeContainer = document.querySelector('.home__container');
-const homeScollY =homeContainer.getBoundingClientRect().height;
+const homeHeight =homeContainer.getBoundingClientRect().height;
 
 document.addEventListener('scroll', () =>{
     //console.log(1 - window.scrollY/homeScollY);
 
-    homeContainer.style.opacity = 1 - window.scrollY/homeScollY;
+    homeContainer.style.opacity = 1 - window.scrollY/homeHeight;
 
 });
 
+//스크롤 업 버튼 
+const arrowUp = document.querySelector('.arrow-up');
 
+document.addEventListener('scroll', ()=> {
+    if(window.scrollY > homeHeight /2){
+        //arrowUp.style.display ='block';
+        arrowUp.classList.add('visible');
+    }else {
+        //arrowUp.style.display ='none';
+        arrowUp.classList.remove('visible');
+    }
+});
+arrowUp.addEventListener('click', () => {
+    console.log( "scroll");
+    scrollIntoView("#home");
+    
 
+});
+
+//스크롤 함수 
 function scrollIntoView(selector){
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({behavior: "smooth"});

@@ -379,6 +379,26 @@ p {
     color: var(--color-light-grey);
 }
 
+/* scroll */
+.arrow-up {
+    position: fixed;
+    top: 85%;
+    right: 5%;
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+    color: var(--color-white);
+    background-color: var(--color-purple);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none; 
+    transition: opacity 300ms ease-in;
+}
+.arrow-up.visible {
+    opacity: 1;
+    pointer-events: auto; 
+}
+
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
    .navbar__toggle-btn {
