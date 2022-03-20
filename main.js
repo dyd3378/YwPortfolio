@@ -8,8 +8,6 @@ const navbarHeight = navbar.getBoundingClientRect().height;
 
 document.addEventListener('scroll', () => {
 
-    const scrollValue = document.documentElement.scrollTop;
-
     //navbar = document.getElementById("navbar");
     if(window.scrollY > navbarHeight   ){
         // navbar.style.backgroundColor = 'var(--color-purple)';
@@ -47,6 +45,20 @@ contact.addEventListener('click',() =>{
     
     scrollIntoView("#contact");
 });
+
+
+// 스크롤 이동시 홈화면 투명 
+const homeContainer = document.querySelector('.home__container');
+const homeScollY =homeContainer.getBoundingClientRect().height;
+
+document.addEventListener('scroll', () =>{
+    //console.log(1 - window.scrollY/homeScollY);
+
+    homeContainer.style.opacity = 1 - window.scrollY/homeScollY;
+
+});
+
+
 
 function scrollIntoView(selector){
     const scrollTo = document.querySelector(selector);

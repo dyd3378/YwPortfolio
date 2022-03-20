@@ -159,6 +159,9 @@ p {
     text-align: center;
     padding-top: 120px;
 }
+#home.home--dark{
+    opacity: 0.5;
+}
 .home__avatar {
     width: 250px;
     height: 250px;
