@@ -22,6 +22,7 @@ document.addEventListener('scroll', () => {
 //   메뉴 클릭시 해당 탭으로 스크롤링 
 
 const navbarMenu = document.querySelector('.navbar__menu');
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
 
 navbarMenu.addEventListener('click', (event) =>{
      
@@ -36,7 +37,15 @@ navbarMenu.addEventListener('click', (event) =>{
     //      console.log ("about!!!!!!!!"+aboutT);
     //      window.scrollTo(0,aboutT);
     //  }
+    navbarMenu.classList.remove('open');
     scrollIntoView(link);
+});
+
+// 토글 버튼 클릭시 메뉴 생성
+
+
+navbarToggleBtn.addEventListener('click',() =>{
+    navbarMenu.classList.toggle('open');
 });
 
 //Contact 클릭시 Contact로 스크롤 이동
