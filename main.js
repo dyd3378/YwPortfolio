@@ -89,11 +89,17 @@ workBtnContainer.addEventListener('click',(e) => {
         return;
     }
 
+    // 셀렉션되어 있는 이전에 선택 버튼은 삭제하고 선택되어진 버튼으로 셀렉션
+    const active = document.querySelector('.categories__btn.selected');
+    active.classList.remove('selected');
+    console.log(e.target.nodeName);
+    const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+  
+    target.classList.add('selected');
+
     projectContainer.classList.add('anime-out');
-
-
     setTimeout(() => {
-        
+
         projects.forEach((project) =>{
             // console.log(project.dataset.type);
              if(filter === '*' || filter === project.dataset.type){
